@@ -10,28 +10,24 @@
         <div class="modal-content">
             <div id="loginForm">
                 <h2>用户登录</h2>
-                <form>
-                    <input type="text" id="loginUsername" placeholder="请输入用户名">
-                    <input type="password" id="loginPassword" placeholder="请输入密码">
-                    <button type="button" onclick="handleLogin()">登录</button>
-                </form>
-                <p>没有账号？<a href=" " onclick="showRegister(); return false;">立即注册</a ></p >
+                <input type="text" id="loginUsername" placeholder="请输入用户名">
+                <input type="password" id="loginPassword" placeholder="请输入密码">
+                <button onclick="handleLogin()">登录</button>
+                <p>没有账号？<a href=" " onclick="showRegister();return false;">立即注册</a ></p >
             </div>
             <div id="registerForm" style="display: none;">
                 <h2>用户注册</h2>
-                <form>
-                    <input type="text" id="regUsername" placeholder="请输入用户名">
-                    <input type="password" id="regPassword" placeholder="请输入密码">
-                    <button type="button" onclick="handleRegister()">注册</button>
-                </form>
-                <p>已有账号？<a href="javascript:;" onclick="showLogin(); return false;">返回登录</a ></p >
+                <input type="text" id="regUsername" placeholder="请输入用户名">
+                <input type="password" id="regPassword" placeholder="请输入密码">
+                <button onclick="handleRegister()">注册</button>
+                <p>已有账号？<a href="javascript:void(0)" onclick="showLogin();return false;">返回登录</a ></p >
             </div>
         </div>
     </div>
 
     <header class="header">
         <div class="logo">
-            < img src="img/logo.jpg" alt="网站Logo" width="120">
+            < img src="./img/logo.jpg" alt="网站Logo" width="120">
         </div>
         <nav class="nav">
             <ul>
@@ -40,7 +36,7 @@
                 <li><a href="#">热销推荐</a ></li>
                 <li><a href="#">新书上市</a ></li>
                 <li><a href="#">联系我们</a ></li>
-                <li><a href="javascript:;" id="loginBtn" onclick="openModal()">登录/注册</a ></li>
+                <li><a href="javascript:void(0)" id="loginBtn" onclick="openModal()">登录/注册</a ></li>
             </ul>
         </nav>
     </header>
@@ -59,7 +55,7 @@
             <section class="book-show">
                 <h3>图书展示区</h3>
                 <div class="book-item">
-                    < img src="img/book1.jpg" alt="图书封面">
+                    < img src="./img/book1.jpg" alt="图书封面">
                     <div class="book-info">
                         <p>书名：Python入门到精通</p >
                         <p>价格：¥59.9</p >
@@ -71,17 +67,17 @@
                 <h3>热门推荐</h3>
                 <div class="recommend-list">
                     <div class="recommend-item">
-                        < img src="img/book2.jpg" alt="图书封面">
+                        < img src="./img/book2.jpg" alt="图书封面">
                         <p>《活着》</p >
                         <p class="author">余华</p >
                     </div>
                     <div class="recommend-item">
-                        < img src="img/book3.jpg" alt="图书封面">
+                        < img src="./img/book3.jpg" alt="图书封面">
                         <p>《平凡的世界》</p >
                         <p class="author">路遥</p >
                     </div>
                     <div class="recommend-item">
-                        < img src="img/book4.jpg" alt="图书封面">
+                        < img src="./img/book4.jpg" alt="图书封面">
                         <p>《云边有个小卖部》</p >
                         <p class="author">张嘉佳</p >
                     </div>
@@ -123,7 +119,7 @@
         <aside class="right-sidebar">
             <h3>促销活动</h3>
             <div class="ad-box">
-                < img src="img/ad.jpg" alt="促销广告">
+                < img src="./img/ad.jpg" alt="促销广告">
                 <p>满100减20，限时优惠！</p >
             </div>
         </aside>
