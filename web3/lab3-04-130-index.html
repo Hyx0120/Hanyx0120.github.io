@@ -132,51 +132,81 @@
     </footer>
 
     <script>
-       
         function openModal() {
             document.getElementById('loginModal').style.display = 'block';
         }
+        
         function showRegister() {
             document.getElementById('loginForm').style.display = 'none';
             document.getElementById('registerForm').style.display = 'block';
         }
+        
         function showLogin() {
             document.getElementById('registerForm').style.display = 'none';
             document.getElementById('loginForm').style.display = 'block';
         }
-
+        
         function handleRegister() {
             let username = document.getElementById('regUsername').value.trim();
             let password = document.getElementById('regPassword').value.trim();
-            if(!username || !password){
+        
+            if (!username || !password) {
                 alert('用户名密码不能为空');
                 return;
             }
-            let users = JSON.parse(localStorage.getItem('users')) || [];
-            if(users.find(item=>item.username===username)){
+            if (username.length < 3 || username.length > 12) {
+                alert('用户名长度需在3-12位之间');
+                return;
+            }
+            if (password.length < 6) {
+                alert('密码长度不能少于6位');
+                return;
+            }
+        
+            let users = [];
+            try {
+                const stored = localStorage.getItem('users');
+                users = stored ? JSON.parse(stored) : [];
+            } catch (e) {
+                console.error('读取用户数据失败，重置为空列表', e);
+                users = [];
+            }
+        
+            if (users.find(item => item.username === username)) {
                 alert('用户名已存在');
                 return;
             }
-            users.push({username,password});
-            localStorage.setItem('users',JSON.stringify(users));
+        
+            users.push({ username, password });
+            localStorage.setItem('users', JSON.stringify(users));
             alert('注册成功，请登录');
             showLogin();
         }
-
+        
         function handleLogin() {
             let username = document.getElementById('loginUsername').value.trim();
             let password = document.getElementById('loginPassword').value.trim();
-            if(!username || !password){
+        
+            if (!username || !password) {
                 alert('用户名密码不能为空');
                 return;
             }
-            let users = JSON.parse(localStorage.getItem('users')) || [];
-            let user = users.find(item=>item.username===username && item.password===password);
-            if(user){
+        
+            let users = [];
+            try {
+                const stored = localStorage.getItem('users');
+                users = stored ? JSON.parse(stored) : [];
+            } catch (e) {
+                console.error('读取用户数据失败', e);
+                users = [];
+            }
+        
+            const user = users.find(item => item.username === username && item.password === password);
+            if (user) {
                 alert('登录成功');
                 document.getElementById('loginModal').style.display = 'none';
-                document.getElementById('loginBtn').innerText = '欢迎：'+username;
-            }else{
+                document.getElementById('loginBtn').innerText = `欢迎：${username}`;
+            } else {
                 alert('用户名或密码错误');
             }
         }
